@@ -3,7 +3,7 @@ class PrescriptionsController < ApplicationController
   def new
     @patients = Patient.find(params[:patient_id])
     @prescriptions = Prescription.find(params[:id])
-    @medications = Medications.all 
+    @medications = Medication.all
   end
 
 

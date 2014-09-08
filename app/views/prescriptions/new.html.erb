@@ -1,12 +1,12 @@
-<% if @medications.errors.any? %>
-  <% @medications.errors.messages.each do |error| %>
+<% if @prescriptions.errors.any? %>
+  <% @prescriptions.errors.messages.each do |error| %>
     <%= error %>
   <% end %>
 <% end %>
 
 <h1>Add a Prescription to <%= @patients.first_name %> <%= @patients.last_name %></h1>
 
-<%= form_for @medications, url: patient_medication_path(id: @medications.patient_id) do |f| %>
+<%= form_for [@patient, @prescription]  do |f| %>
   <%= f.collection_select :category, Medication.all, :id, :name %>
   <%= f.label :dosage %>
   <%= f.text_field :dosage %>
@@ -19,5 +19,3 @@
   <%= f.submit "Create Prescription" %>
 
 <% end %>
-
-<!--Something is wrong with this path, its not passing in the id, only patient_id-->
