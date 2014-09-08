@@ -12,3 +12,4 @@ class Medications < ActiveRecord::Migration
   end
 end
 
+#Not sure if this table is right? 
