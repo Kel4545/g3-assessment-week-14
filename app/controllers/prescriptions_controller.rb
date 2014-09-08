@@ -1,15 +1,11 @@
 class PrescriptionsController < ApplicationController
 
-  def show
-    @patients = Patient.all
-    @prescriptions = Medication.find(params[:id])
-  end
-
-
   def new
-    @patients = Patient.find(params[:id])
-    @prescriptions = Medication.new
+    @patients = Patient.find(params[:patient_id])
+    @prescriptions = Prescription.find(params[:id])
+    @medications = Medications.all 
   end
+
 
   def create
     prescriptions_params = params.require(:name).permit(:name, :dosage, :schedule, :starts_on, :ends_on).merge(patient_id: params[:patient_id])
