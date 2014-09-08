@@ -1,6 +1,6 @@
 class Prescription < ActiveRecord::Base
 belongs_to :medication
-belongs_to :user
+belongs_to :patient 
 
 validates :dosage, presence: true
 validates :schedule, presence: true
