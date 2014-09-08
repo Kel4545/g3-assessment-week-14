@@ -12,14 +12,15 @@
   </tr>
   </thead>
   <tbody>
-  <% @medications.each do |medication| %>
+  <% @patients.prescriptions.each do |prescription| %>
     <tr>
 
-      <td><%= link_to medication.name, patient_medication_path(id: medication.id) %></td>
+      <td><%= link_to prescription.name, patient_prescription_path(id: medication.id) %></td>
 
-      <td><%= medication.dosage %></td>
 
-      <td><%= medication.starts_on %> - <%= medication.ends_on %> </td>
+      <td><%= prescription.dosage %></td>
+
+      <td><%= prescription.starts_on %> - <%= prescription.ends_on %> </td>
     </tr>
   <% end %>
   </tbody>
