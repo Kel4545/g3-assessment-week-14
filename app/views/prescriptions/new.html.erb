@@ -6,7 +6,7 @@
 
 <h1>Add a Prescription to <%= @patients.first_name %> <%= @patients.last_name %></h1>
 
-<%= form_for [@patient, @prescription]  do |f| %>
+<%= form_for [@patients, @prescriptions]  do |f| %>
   <%= f.collection_select :category, Medication.all, :id, :name %>
   <%= f.label :dosage %>
   <%= f.text_field :dosage %>
