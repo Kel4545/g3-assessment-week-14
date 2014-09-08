@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20140908182341) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "medications", force: true do |t|
+  create_table "prescriptions", force: true do |t|
     t.string "name"
   end
 

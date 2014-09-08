@@ -1,4 +1,4 @@
-class MedicationsController < ApplicationController
+class PrescriptionsController < ApplicationController
 
   def show
     @patients = Patient.all
