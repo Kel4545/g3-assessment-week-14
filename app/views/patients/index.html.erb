@@ -1,0 +1,26 @@
+
+<h1><%= @patients.first_name %> <%= @patients.last_name %></h1>
+
+
+<h2> Prescriptions </h2>   <%= link_to "Add Presciption", new_patient_medication_path(@patients) %>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Medication</th>
+    <th>Dosage/Schedule</th>
+    <th>Dates</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @medications.each do |medication| %>
+    <tr>
+
+      <td><%= link_to medication.name, patient_medication_path(id: medication.id) %></td>
+
+      <td><%= medication.dosage %></td>
+
+      <td><%= medication.starts_on %> - <%= medication.ends_on %> </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

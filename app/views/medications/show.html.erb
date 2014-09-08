@@ -1,0 +1,26 @@
+<% @medications.name %>
+
+Prescriptions
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>Patient</th>
+    <th>Dosage/Schedule</th>
+    <th>Dates</th>
+    <th>Prescribed By</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @patients.each do |patient| %>
+    <tr>
+      <td><%= link_to patient.name, patient_medication_path(id: patient.id)  %></td>
+      <% @medications.each do |medication| %>
+        <td><%= medication.dosage %></td>
+        <td><%= medication.starts_on %> - <%= medication.ends_on %></td>
+        <td><%= medication.prescribed_by %></td>
+        </tr>
+        </tbody>
+        </table>
+      <% end %>
+  <% end %>

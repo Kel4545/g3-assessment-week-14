@@ -25,3 +25,4 @@ Patient.create!(first_name: "Finn", last_name: "Hudson")
 Medication.create!(name: "Tylenol")
 Medication.create!(name: "Cough Syrup")
 Medication.create!(name: "Advil")
+
