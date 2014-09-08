@@ -15,7 +15,7 @@
   <% @patients.prescriptions.each do |prescription| %>
     <tr>
 
-      <td><%= link_to prescription.name, patient_prescription_path(id: medication.id) %></td>
+      <td><%= link_to link_to prescription.medication_name(prescription.medication_id), patient_prescription_path(id: prescription.medication.id) %></td>
 
 
       <td><%= prescription.dosage %></td>
