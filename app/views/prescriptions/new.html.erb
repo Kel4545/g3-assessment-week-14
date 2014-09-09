@@ -10,7 +10,7 @@
 <ul>
 <%= form_for [@patients, @prescriptions]  do |f| %>
  <li> <%= f.label :name, "Medication"  %>
-  <%= select_tag :medication_id, options_from_collection_for_select(@medications, "id", "name") %></li>
+   <%= f.collection_select(:medication_id, Medication.all, :id, :name) %>  </li>
  <br>
 <li><%= f.label :dosage %>
   <%= f.text_field :dosage %></li>

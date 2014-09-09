@@ -1,6 +1,6 @@
 <% @medications.name %>
 
-Prescriptions
+<h1> Prescriptions</h1>
 
 <table class="table">
   <thead>
@@ -15,7 +15,6 @@ Prescriptions
   <% @medications.prescriptions.each do |prescription| %>
     <tr>
       <td><%= link_to patient.name, patient_prescription_path(prescription.patient_id)  %></td>
-      <% @prescriptions.each do |prescription| %>
         <td><%= prescription.dosage %></td>
         <td><%= prescription.starts_on %> - <%= prescription.ends_on %></td>
         <td><%= prescription.prescribed_by %></td>
@@ -23,4 +22,3 @@ Prescriptions
         </tbody>
         </table>
       <% end %>
-  <% end %>
