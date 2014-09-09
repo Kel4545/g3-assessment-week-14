@@ -1,6 +1,6 @@
 class MedicationsController < ApplicationController
 
   def show
-    @medications = Medications.find(params[:id])
+    @medications = Medication.find(params[:id])
   end
 end

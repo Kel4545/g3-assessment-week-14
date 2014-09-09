@@ -8,20 +8,22 @@ class PrescriptionsController < ApplicationController
 
 
   def create
-    Prescription.new(
+    @patients = Patient.find(params[:patient_id])
+
+    @prescriptions = Prescription.new(
       medication_id: params[:medication_id],
       patient_id: params[:patient_id],
       dosage: params[:prescription][:dosage],
       starts_on: params[:prescription][:start_date],
-      ends_on: params[:prescription][:end_date]
+      ends_on: params[:prescription][:end_date],
     )
     if @prescriptions.save
-      redirect_to patient_prescription_path, notice: "Your prescription was created successfully!"
+    flash[:notice] = "Your Prescription has been created"
+    redirect_to "/patients/#{@patient.id}"
     else
       render :new
     end
   end
-
 end
 
 

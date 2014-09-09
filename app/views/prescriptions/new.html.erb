@@ -1,19 +1,27 @@
 <% if @prescriptions.errors.any? %>
+  <h4>Your prescription could not be saved</h4>
   <% @prescriptions.errors.messages.each do |error| %>
     <%= error %>
   <% end %>
 <% end %>
 
-<h1>Add a Prescription to <%= @patients.first_name %> <%= @patients.last_name %></h1>
+<h1>Add a Prescription to <%= full_name(@patients)%></h1>
 
+<ul>
 <%= form_for [@patients, @prescriptions]  do |f| %>
-  <%= select_tag :medication_id, options_from_collection_for_select(@medications, "id", "name") %>
-  <%= f.label :dosage %>
-  <%= f.text_field :dosage %>
-  <%= f.label :starts_on %>
-  <%= f.date_select :starts_on, :order => [:month, :day, :year] %>
-  <%= f.label :ends_on %>
-  <%= f.date_select :ends_on, :order => [:month, :day, :year] %>
-  <%= f.submit "Create Prescription" %>
+ <li> <%= f.label :name, "Medication"  %>
+  <%= select_tag :medication_id, options_from_collection_for_select(@medications, "id", "name") %></li>
+ <br>
+<li><%= f.label :dosage %>
+  <%= f.text_field :dosage %></li>
+ <br>
+ <li> <%= f.label :starts_on %>
+  <%= f.date_select :starts_on, :order => [:month, :day, :year] %></li>
+ <br>
+ <li><%= f.label :ends_on %>
+  <%= f.date_select :ends_on, :order => [:month, :day, :year] %></li>
+ <br>
+  <%= f.submit "Create Prescription", :class => "create_button" %>
 
 <% end %>
+</ul>

@@ -1,6 +1,6 @@
 class Prescription < ActiveRecord::Base
 belongs_to :medication
-belongs_to :patient 
+belongs_to :patient
 
 validates :dosage, presence: true
 validates :schedule, presence: true
@@ -9,5 +9,13 @@ validates :ends_on, presence: true
 
 def medication_name(id)
   Medication.find(id).name
+end
+
+def patient_id(id)
+  Patient.find.id
+end
+
+def user_name(id)
+  User.find(id).name
 end
 end
